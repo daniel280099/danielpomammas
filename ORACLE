@@ -1,0 +1,46 @@
+
+CREATE TABLE LIBRO2(
+   TITULO     VARCHAR2(20) NOT NULL,
+   AUTOR      VARCHAR2(15) NOT NULL,
+   EDITORIAL  VARCHAR2(10) NOT NULL,
+   PRECIO     NUMBER(6,2),
+   CANTIDAD   NUMBER(3,0)
+);
+
+INSERT INTO LIBRO2 VALUES (001,'La felicidad', 'Mayra Ogty','Los Buhos', 220, 243);
+
+
+INSERT INTO LIBRO2 VALUES('MATEMATICAS ESTAS AHI', 'PIUENSA','SIGLO XXI' ,18.8, 10);
+DESCRIBE LIBRO2;
+
+
+DROP PROCEDURE LIBRO2 CASCADE CONSTRAINTS;
+
+DROP TABLE IF EXISTS LIBRO2
+
+SELECT TITULO, AUTOR , EDITORIAL, CANTIDAD  FROM LIBRO2;
+
+
+DROP TABLE usuarios;
+
+CREATE TABLE usuarios(
+nombre VARCHAR2(30),
+clave VARCHAR2(10)
+)
+
+DESCRIBE usuarios
+
+INSERT INTO usuarios VALUES('Marcelo','Boca');
+INSERT INTO usuarios VALUES('JuanPerez','Juancito');
+INSERT INTO usuarios VALUES('Susana','River');
+INSERT INTO usuarios VALUES('Luis','River');
+
+SELECT * FROM usuarios;
+
+SELECT nombre FROM usuarios WHERE nombre='Marcelo';
+
+SELECT nombre FROM usuarios WHERE clave ='River';
+
+SELECT nombre FROM usuarios WHERE clave ='Santi';
+
+
