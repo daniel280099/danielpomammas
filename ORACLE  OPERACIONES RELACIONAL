@@ -1,0 +1,23 @@
+
+drop table libros;
+
+create table libros(
+titulo varchar2(30),
+autor varchar2(30),
+editorial  varchar2(15),
+precio number(5,2)
+)
+
+
+insert into libros values('El aleph','Borges','Emece',24.50);
+insert into libros values('Martin Fierro','Jose hernandez','Emece',16.00);
+insert into libros values('Aprende PHP','Mario Molina','Emece',35.40);
+insert into libros values('Cervante y el quijote','Borges','Paides',50.90);
+
+select * from libros where autor <> 'Borges';
+
+select titulo, precio from libros where precio > 20;
+
+select * from libros where precio <= 30;
+
+select * from libros where precio < 20; 
