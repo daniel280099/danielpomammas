@@ -1,0 +1,35 @@
+para eliminar los registros de una tabla usamos el comando <<<---DELETE--->>>
+seguido sintaxis basicas <<<<----- DELETE FROM "-- NOMBRE_DE _LA_TABLA--".
+SE COLOCA EL COMANDO DELETE seguido de la palabra <<<--FROM-->>> y el nombre de la tabla
+de la cual queremos eliminar los registros en el siguiente ejemplo se elimina los registro
+de la tabla usuarios <<--- delete FROM usuarios;--->> seguido luego un mensaje indica la cantidad de registros que se han
+elminado. si no quermos eliminar todos los registros, sino que solo algunos debemos indicar cual o cuales, para ello utilizamos el comando delete
+junto con la clausula <<<<-where-->>> con la cual establecemos la condicion que debe cumplir los registros a borrar. por ejemplo:
+queremos eliminar aquel registro cuyo nombre de usuario, es 'Marcelo'--------[<<< delete from
+ usuarios where nombre = 'Marcelo';>>>>>]----- si solicitamos el borrado de un registro que no
+ existe, es decir , ningun registro cumple con la condicion especificada,aparecera 
+un mensaje indicando que ningun registro fue eliminado, pues no encontro registro de es e dato.
+    
+
+	denis daniel poma armas-- 
+	denis daneil poma armas--
+	denis daniel poma armas--
+
+Tenga en cuenta que si no colocamos una condicion, se elimina todos los registros de la tabla especificada.
+
+
+
+eliminar la tabla usuario --- drop table usuarios;
+crear la tabla usuario usuario con sus  campos --- 
+registrar e insertar filas a la tabla usuario
+mostar los registros de la tabla usuario
+eliminar el registro cuyo nombre sea marcelo
+elimimar los registros sea Boca delete from usuario where 
+eliminamos todos los registro de la tabla usuario--- delete from usuarios
+
+
+
+
+
+
+1
