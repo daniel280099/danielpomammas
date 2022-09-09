@@ -1,0 +1,42 @@
+SELECT  LA SINTAXIS BASICA Y GENERAL ES LA SIGUIENTE ->> " SELECT * FROM NOMBRE_TABLA;"
+EL ASTERICO INDICA QUE SE SELECIONA TODO LOS CAMPO DE LA TABLA. PODEMOS ESPECIFICAR EL NOMBRE DE LOS CAMPOS QUE QUEREMOS VER SEPARADOS POR COMAS  ','
+
+SELLECT TITULO, AUTOR , EDITORIAL, PRECIO, CANTIDAD  FROM LIBROS;
+
+
+<<RECUPERAR ALGUNOS REGISTROS>> "---WHERE---"
+
+HEMOS APRENDIDO A SELCCIONAR ALGUNOS CAMPOS DE UNA TABLA, TAMBIEN ES POSIBLE RECFUPERAR ALGUNOS REGISTROS. EXISTE UNA CLASULA WHERE CON LA CUAL PODEMOS 
+ESPECIFICAR CONDICIONES PARA UNA CONSULTA SELECT. ES DECIR PODEMOS RECUPERAR ALGUNOS REGISTROS, SOLO LO QUE CUMPLAN CON CIERTAS CONDICIONES INDICADAAS
+ POR LA CLAUSULA "--WHERE--". POR EJEMPLO:
+QUERMOS VER EL USUARIO CUALL SU NOMBRE ES MARCELO PARA ELLOS UTILIZAMOS WHEREY LUEGO DE ELLA SU CONDICION
+-----------------------------------------------------------------------------------------------------------------------------------
+-->>><<<<<>>>>>>>>>>> SELECT NOMBRE , CLAVE FROM USUARIOS WHERE NOMBRE = 'MARCELO';<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+LA SINTASIS BASICA Y GENRAL ES LA SIGUIENTE:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------SELECT NOMBRECAMPO1,....,NOMBRECAMPON FROM NOMBRETABLA WHERE CONDICION--------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+PARA LAS CONDICONES SE UTILIZAN OPERADORES RELACIONALES ("TEMA QUE TRATAREMOS MAS EN DETALLE"). ELS IGNO "--- = --- " ES UN OPERADOR RELACIONAL,. PARA LAS SIGUIENTE SELECION DE REGISTRO
+ESPECIFICAMOS UNA CONDICION QUE SOLICITA LOS USUARIOS CUYA CLAVE ES IGUAL "--RIVER--" EJEMPLO::
+
+
+-------------------------------------------------------------------------------------------------
+-----------------------------SELECT NOMBRE, CLAVE FROM USUARIOS WHERE = 'RIVER';----------------   
+-------------------------------------------------------------------------------------------------
+SI NINGUN REGISTRO CUMPLE LA CONDICION ESTABLEIDA CON EL "--WHERE--" NO PARECERA NINGUN REGISTRO ESTABLECEMOS CONDICIONES PARA RECUPERAR ALGUNOS REGISTROS. PARA RECUPERAR ALGUNOS CAMPOS 
+DE ALGUNOS REGISTROS CONVINAMOS EN LA CONSULTA LA LSIATA DE CAMPOS Y LA CLAUSULA WHERE DE LA SIGUIENTE FORMA:
+
+
+--------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+  SELECT NOMBRE FROM USUARIOS WHERE = 'RIVER';
+EN LA CONSULTA ANTERIOR SOLICITAMOS EL NOMBRE DE  TODOS LOS USUARIOS CUYA CLAVE SEA IGUALA "[--RIVER--]"
+
+
+
+
+
+--TABLA--USUARIOS--COLUMNA1                                                
+
+
