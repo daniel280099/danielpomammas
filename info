@@ -1,0 +1,90 @@
+actualizacion de registros(update)
+Decimos que actualizamos un registro cuando modificamos
+para modificar uno o varios datos o de uno o varios registros utilizamos update(Actualizar) sintaxis basica:
+<<<----  UPDATE NOMRETABLA SET CAMPO = NUEVOVALOR; ---->>>
+Utilizamos update junto al nombre de la tabla y 'set' junto con le campo a modificar y su nuevo valor. el cambio afectara a todos los registros. por ejemplo en nuestra tabla usuario
+quemos cambiar los valores de todas las claves por 'Real madrid'---: update usuarios set clave = 'RealMadrid'; podemos modificar algunos registros para ello debemos establecer condiciones de seleccion 
+ con where. por ejemplo de nuestro usuario 
+
+ quermos como nueva clave boca, necesitamos uinca condicion where que afecte solamente a este registro: ejemplo --> update usuarios set clave = 'Boca' where nombre = 'FedericoLopez';
+
+si oracle no encuentra registros que cumplan con la condicoin de where, un mensaje indica que ningun registro fue modificado. Las condiciones no son obligatorias, pero si omitimos la clausala where la actualizacion afectara a todos los registros. tambien podemos 
+actualizar varios campos en una sola induccion:--> update usuarios set nombre = 'MArceloDuarte',clave = 'Marce' where nombre = 'Marcelo'; para ello utilizamo update el nombre de la tabla , set junto al nombre del campo y el nuevo valor, separado por comas el otro nombre del campo
+con su nuevo valor.
+
+ejercicio:-->
+
+
+
+
+comentarios para aclarar algunas instruciones en ocaciones necesitamos agregara comentarios seguido es posiible indicar comentarios en la linea de comandos es decir un texto que no se ejecuta, para ellos se emplea dos guiones ' --> -- ':
+select * from libros; -- comentarios en la linea anterior todo lo qu esta luego de los guiones no se ejecuta. par agrega varias lineas de comenatios se coloca ----> "/* comentario */" al comienzo del bloque de comentario y al finalizarlo, un asterico seguido de una barra
+
+ 
+
+
+
+
+
+---1 eliminar tabla usuarios
+drop table usuarios;
+--2 crear la tabla 
+CREATE TABLE usuarios(
+nombre VARCHAR2(30),
+clave VARCHAR2(10)
+)
+--Visualizar la estructura de la tabla 
+describe usuarios;
+--insertar datos
+INSERT INTO usuarios VALUES('Marcelo','River');
+INSERT INTO usuarios VALUES('Susana','chapita');
+INSERT INTO usuarios VALUES('CarlosFuentes','Boca');
+INSERT INTO usuarios VALUES('FedericoLopez','Boca');
+--mostra los registros
+select * from usuarios;
+-- modificar todos los valores de la clave del usuario por 'RealMadrid'
+update usuarios set clave = 'RealMadrid';
+-- modificar la calve del usuario llamado 'FedericoLopez' por 'Boca';
+update usuarios set clave = 'Boca ' where nombre = 'FedericoLopez';
+
+--modificar todos los campo d la tabloa usuario que lleven por nombre marcelo
+update usuarios set nombre = 'MarceloDuarte', clave = 'Marce' where nombre = 'Marcelo'; 
+--
+--
+--
+--
+
+
+
+
+drop table agenda;
+
+create table agenda(
+apellido varchar2(30),
+nombre VARCHAR2(20),
+domicilio VARCHAR2(30),
+telefono VARCHAR2(11)
+);
+
+select* from agenda;
+insert into agenda values ('Acosta', 'Alberto','colon 123','4234567');
+insert into agenda values ('Juarez', 'Juan','Avellanada 135','4458787');
+insert into agenda values ('Lopez', 'Maria','Urquiza 333','4545454');
+insert into agenda values ('Lopez', 'Jose','Urquiza 333','4545454');
+insert into agenda values ('Salas', 'Susana','Gral. Paz 1234','4123456');
+
+select* from agenda;
+
+update agenda set nombre ='Juan Jose'  where nombre = 'Juan';
+
+select* from agenda;
+
+update agenda set telefono ='44455666' where telefono ='4545454';
+
+select* from agenda;
+
+update agenda set nombre = 'Juan Jose' where nombre ='Juan';
+
+select* from agenda;
+
+
