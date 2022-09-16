@@ -1,0 +1,50 @@
+--1R
+--Eliminar la tabla medicamentos
+drop table medicamentos;
+--2R
+--crear la table medicamnetos con los siguintes paramtros o campos
+create table medicamentos(
+    codigo number(5)not null,
+    nombre varchar2(20)not null,
+    laboratorio varchar2(20),
+    precio number (5,2),
+    cantidad number (3,0) not null
+);
+--3R
+--visualizar la estructura de la tabla medicamnetos notanto los campoos
+--codigo , nombre  y candidad  en la columna que nos muestra con valor NOT NULL
+describe medicamentos;
+-- insertar registros con valor null a los campos que loa admintan
+            insert into medicamentos (codigo,nombre,laboratorio,precio,cantidad)
+              values(1,'Sertal gotas',null,null,100); 
+             insert into medicamentos (codigo,nombre,laboratorio,precio,cantidad)
+              values(2,'Sertal compuesto',null,8.90,150);
+             insert into medicamentos (codigo,nombre,laboratorio,precio,cantidad)
+              values(3,'Buscapina','Roche',null,200);
+  --verificar la tabla con los registro realizados
+  select * from medicamentos;
+  
+--ingrese un registro con valor 0 para el precio y cadena vacia  para el laboratorio
+insert into medicamentos (codigo, nombre , laboratorio,precio,cantidad) values(4,'paracetamol',null,0,4); 
+
+--intentar ingresar un registrocon cadena vacia para el nombre 
+insert into medicamentos (codigo ,nombre, laboratorio,precio,cantidad)values(5,null,'San marcos',20.50,3);
+--8R
+--intentar ingresar un valor nuloen un campo que no admite
+insert into medicamentos (codigo ,nombre, laboratorio,precio,cantidad)values(null,'Panadol','San Juan',10,3);
+--9R
+--ingrese un registro con una cadena de 1 espacio  parael laboratorio;
+insert into medicamentos(codigo, nombre, laboratorio,precio, cantidad)values(7,'metformina',' ',10.3,2);
+
+select * from medicamentos;
+
+--10R
+--recuperar los registros cuyo laboratorio contenga 1 espacio 
+
+select * from medicamentos where laboratorio = ' ';
+
+--11R
+select * from medicamentos where laboratorio <> ' ';
+
+select 
+* from medicamentos;
