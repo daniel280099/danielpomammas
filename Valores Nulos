@@ -28,5 +28,13 @@ Una cadena vacia es interpretada por oracle como valor nulo por lo tanto si ingr
 	
 	
 	
+	8
+intentar ingresar un registro con valor nulo par ael campo que no admite (aparaece un mensaje de erro)
+9 ingrese un registro de una cadena d 1 espacio para el laboratorio
+recupere los registros cuyo laboratorio contengan 1 espacio (1 reghistro)
+
+11 recupere los registros cuyo laboratotio se distinto de '' (cadena de 1 espacio )( 1 registro)
+	
+	
 	
 	
