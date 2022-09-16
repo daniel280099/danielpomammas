@@ -1,0 +1,32 @@
+Valores nulos (null)
+null significa dato desconocido o valor inexistente. aveces puede desconocerce o no existir el campo correspondiente a lagun campo de un registro en esos casos decimos que el campo puede contener valores nulos. por ejemplo: en nuestr tabla de libros podemos tener  valore nulos en el campo precio por que es posible que alagunos libros le hagamos establecido el precio para la venta. En contraposiscion tenemos campos que no puden estar vacios jamas.veamos un ejemplo, tenemos en la tabla libros , el campo titulo no deberuia estar vacio nunca, igualmente el campo autor, para ello al crear la tabla debemos especificar que tales camposno admitan valores nulos:
+<<< 
+		create table libros(
+			titulo varchar2(30) not null,
+			autor varchar2(20) not null,
+			editorial varchar2(15) null,
+			precio number(5,2)
+);
+>>>
+PAra especificar que un campo no admita valores nulos debemos colocar not null, luego de la definicion del campo. En el ejemplo anterior los campos editorial y precios si permiten valores nulos. cuando colocamos "null" estamos dicienndo que admite valores nulos (caso del campo editorial), por defecto es decir que si no lo aclaramos os campos permiten los valores nulos(caso del campo precio). cualquier campo de cualquier tipo de dato permite se definido para aceptar o no valores nulos, un valor null no es los mismo que un valor cero o una cadena de espacio en blanco. Si engresamos los datos de un libro, a la cual aun no emos definidoel precio podemos colocar null para mostrar que no tiene precio ejemplo:
+<<<
+	insert into libros(titulo,autor,editorial,precio)
+	values ('El aleph', 'Borges','Emece',null);
+>>>
+Note que el valor null no es una cadena de caracteres, nose coloca entre comillas "" .entonces si jun campo acepta valores nulos podemos ingresar null cuando no conocemos el valor. tambien podemos colocar null en el campo editorial y si desconocemos el nombre de la editorial a la cual pertenece el libro que vamos a ingresar:
+<<<
+	insert into libros(titulo,autor,editorial,precio)
+	values ('Alicia en el pais', 'Lewis Carroll',null,25);
+	>>>
+Una cadena vacia es interpretada por oracle como valor nulo por lo tanto si ingresamos una cadena vacia, se almacena el valor nul. si intentamos ingresar  el valor null(una cadena vacia) en campos que no admiten valores nulos como titulo o como autor, oracle no lo permite, muestra un mensaje y la insercion no se realiza por ejemplo
+<<<
+	insert into libros(titulo,autor,editorial,precio)
+	values (null, 'Borges','Siglo XXI',25);
+	>>>
+	cuando vemos la estructura de una tabla, con describe en la columna null aparece not null
+	si el campo no admite valores nulosy no aparece en caso que si lo permitan. Para recuperar los registros que contengan el valor null en algunos campos no podemos utilizar losoperadores relacionales vistos anteiromente: describe ( = y <>), debemos utilizar los operadores is null (es igual a null) y is not null (no es null) los valores nulos no se muestran, aparace el campo vacio, entonces para que un campo no permitan valores nulos debemos especificarlo. luego de definicir el campo agregando not null por defecto los campos no permiten los valores nullos pero podemos especificarlo agregando 
+	
+	
+	
+	
+	
