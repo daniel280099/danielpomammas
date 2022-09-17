@@ -1,0 +1,11 @@
+operadores relacionales (is null)
+
+para recuperar los resgistros qu contengan l valor null en algun camapo no podemos utilizar los operadores relacionales vistos anteriormente ' = <> ', debemos utilizar los operadores is null( es igual al null) y is not null(no es null).Con las siguintes sentencias recuperamos los libros que contienen valor nulo en eel campo editorial
+<<--select * from libros where editorial is null;-->>
+
+Recuerden que los valores nulos nose muetran aparece el campo vacio. Las siguintes sentencias tendrn un salida diferente
+<<-- select * from libros where editorial is null;
+     select * from libros where editorial = ' ';
+     -->>
+     la primera sentencia veremos los libros cuya editorial almacen valor null(desconocido), con la segunda los lirbos de editorial guarda una cadena de espacio en blanco. Para obtener los registros que no contienen null se puede emplear is not null esto mostrara los registros o valores conocidos para ver los ibros que no tienen valor null en el campo precio tipiamos:
+     <<<--- select * from libros where precio is not null;--->>> 
