@@ -5,15 +5,17 @@
  * 
  */
 
+$nombre = $_POST['nombre'];
 $frutas = array("Gaseosa Inka" => 120,
 						"Agua con gas" => 10);
 class frutas 
 {
 	public $frutas;	
+
 	function __construct($frutas)
 	{
 		// code...
-		$this ->frutas = $frutas;
+		$this -> frutas = $frutas;
 	}
 	public function listaFrutas(){
 		
@@ -25,8 +27,8 @@ class frutas
 
 		// code...
 		#echo "<select value='{$valor}'><option> {$valor }</option> </select>" ;
-		echo  "<input type='hidden' name='{$val}'> <br>
-		<input type='checkbox' value='{$valor}[]' name='{$valor}'> {$valor} <br>";
+			#<input type='checkbox'  name='precio[{$val},{$valor}]' value='{$val}'> {$val}<br>
+		echo  "<input type='checkbox' name='valor[$valor]' value='{$val}'> {$valor} <br>";
 		}
 		#return $imprimeValor;
 	}
@@ -70,6 +72,15 @@ class frutas
   	<div class="container">
   		<div class="row">
   			<div class="col-12">
+  				<div class="container-fluid">
+  					<div class="section-title">
+  						<label class="fw-bold">Nombre de la persona</label>
+  						<input type="" class="form-control" disabled name="" value="<?php echo $nombre; ?>">
+  					</div>
+  				</div>
+  			</div>
+  			<div class="col-12">
+  				<span>Lista de productos </span>
   				<div class="form-control">
   					<form method="POST" action="vale.php">
   						<?php echo $lista1-> listaFrutas(); ?>
@@ -77,16 +88,6 @@ class frutas
   					</form>
 
 
-  					<?php
-if(isset($_POST['submit'])){//Validacion de envio de formulario
-if(!empty($_POST['genero'])){
-// Ciclo para mostrar las casillas checked checkbox.
-foreach($_POST['genero'] as $selected){
-echo $selected."</br>";// Imprime resultados
-}
-}
-}
-?>
   				</div>
   			</div>
   		</div>

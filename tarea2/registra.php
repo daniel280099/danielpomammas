@@ -33,7 +33,7 @@ class tipoPersona
 		{
 			parent::__construct($nombre);
 
-			$this->numprod =$numprod;
+			$thi-sc>numprod =$numprod;
 		}
 		public function cuantosProductos(){
 			for ($i=1; $i <= $this->numprod ; $i++) { 
