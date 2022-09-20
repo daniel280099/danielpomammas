@@ -23,14 +23,15 @@ class Registro
 				echo "<p>Has seleccionado ".$checked_contador." productos</p> <br/>";
 				// Bucle para almacenar y visualizar valores activados checkbox.
 				foreach($_POST['valor'] as $seleccion => $valuee) {
-					$sueldo=0;
+					
 					$sueldo = $sueldo + $valuee;
 	
 					echo "<p>{$valuee} cuesta {$seleccion}
 					<input type='hidden' id='{$seleccion}' ></p>";
+					echo $sueldo;
 					}
 					echo "<label class='fw-bold'>el total a pagar es de: </label>
-					<input class='form-control' disabled value='{$sueldo}''>";
+					<input class='form-control' disabled value='$sueldo''>";
 
 
 
@@ -62,7 +63,7 @@ class Registro
 		<p>Facturacion de un registro</p>
 		<div class="row">
 			<div class="col-5">
-				<img src="https://img.freepik.com/foto-gratis/pared-azul-pastel-fondo-producto-piso-madera_53876-104708.jpg?w=2000">
+				<img src="">
 			</div>
 			<div class="col-7">
 				<?php echo $lista1-> validacionArray(); ?>
