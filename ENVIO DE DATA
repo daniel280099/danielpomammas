@@ -1,0 +1,22 @@
+
+insert into data values(1,'daniel poma define');
+DROP TABLE USUARIOS;
+
+create table usuarios(
+nombre varchaR2(20)NULL,
+clave varchar(10),
+PRIMARY KEY(nombre)
+
+);
+select usuarios.nombre , usuarios.clave from usuarios;
+
+--deswcricion de alias
+select usu.nombre , usu.clave from usuarios usu
+
+--descricion
+select uc.table_name, column_name from
+user_cons_columns ucc
+join user_constraints uc
+on ucc.constraint_name = uc.constraint_name
+where uc.constraint_type = 'P' and
+uc.table_name = 'USUARIOS';
