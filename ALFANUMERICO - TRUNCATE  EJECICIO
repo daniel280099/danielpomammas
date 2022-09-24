@@ -1,0 +1,109 @@
+Vaciar la tabla( truncate table)
+aprendimos que par borrar todos los registros de una tabla  se usa delete sin la condicion where tambien podemos eliminar todos los registros de una tabla  con 'truncate table'
+sintaxis : truncate table nombretabla;
+por ejemplo quermos vaciar la tabla libros, usamos : truncate table libros; la sentencaia truncate table  elimina todos los registros y conserva la estructura de la tabla. la diferencia
+con drop table es qu esta sentencia limina la tabla, no solamente los registros a diferencia del truncate table este solo vacia los registros la diferencia con delte es la siguiente:
+al emplear delete oracle guarda un copia de los registros borrados y son recuperables con truncate table no es posible la recuperacion por que libera todo el espacio en disco ocupado por la tabla 
+por la tanto truncate table es mas rapido delete (se nota caunto la cantidad es muy grande ).
+
+
+
+
+TIPO DE DATOS ALFANUMERICOS()
+
+YA  EXPLICAMOS QUE AL CREAR UNA TABLA DEBEMOS DE ELEGIR LA ESTRUCTURA ADECUADA, ESTO ES DEFINIR LOS CAMPOS Y SUS TIPOS MAS PRECISOS SEGUN EL CASO PARA ALMACENAR VALORES ALAMANUMERICOS(texto)
+usamos cadena de caracteres. las cadenas se colocan en cadenas simples podemois almacernasr letras, SINBOLOS , DIGITOS CON LOS QUE NO REALICE OPERACIONES MNATEMATICAS POR EJEMPLO CODIGOS DE IDENTIFICACION NUMEROS DE DOCUEMNTOS, NJUMEROS TELEFONICOS 
+TENEMPOS LOS SIGUIENTES TIPOS.
+1. CHAR(X) DEFINE UNA CADENA DE CARACTERES  DE MLONGITUD FIJA POR EL ARGUMENTO X. SI SE OMITE EL ARGUMENTO POR DEFECTO SE COLOCA CHAR VIENE DE CHARACTER SU RANGO ES DE UNO A 2000 CARACTERES QUE SEA UNA CEDENA DE L FIJA SIGNIFICA QUE DEFINIMOS UN CAMPO  COMO CHAR 10
+Y ALMACENAMOS EL VALOR 'HOLA' 4 CARACTERES ORACLE RELLENARA LAS 6 POSICIONES RESTANTES CON ESPACIO, ES DECIR OCUPARA LAS 10 POSICIONES POR LO TANTO LA LONGITUD ES INVALIABLE ES CONVENIENETE UTILIZAR EL TIPO CHAR CASO CONTRARIO UTILIXAR EL TIPO VARCHAR2.SI ALMACERNAMOS HOLA EN UN CAMPO DEFINIDO CHAR (10) ORACLE ALMACENA
+2- VARCHAR2(X)ALMACENA CADENAS DE CARACTERES DE LONGITUD VARIABLE DETERMINADA POR EL ARGUMENTO X(OBLIGATORIO) QUE SEA DE LONGITUD VARIABLE SIGNIFICA QUE SI DEFINIMOS UN CAMPO VARCHAR 2 (10) Y ALMACENAMOS EL VALOR HOLA(4 CARACTERES) ORACLE SOLO OCUAP LAS 4 POSICIONES(4 FILES Y NO 10 COMO EN LE CASO DE CHAR) POR LO TONATO SI LA LONGITUD ES VARIABLE  ES CONVENIENTE USAR ESTE TIPO DE DATO 
+Y NO CHAR ASI OCUPAMOS MENOS ESPACIOS DE ALMACENAMIENTO EN EL DISCO SU RANGO ES DE 1 A 400 CARACTERES.
+3. NCHAR(X)
+ ES SIMILAR A CHAR EXEPCTO QUE PERMITE ALMACENAR CARACTERES ASCII, EBCDIC Y UNICODE SU RANGO VA DE 1 A 1000 CARACTERES POR QUE SE EMPLEA 2 BIT EN CADA CARACTER 
+4. NVARCHAR2(X)
+ES SIMILAR A VARCHAR2 EXCEPTO QUE PERMITE ALMACENAR CARACTERES UNICODE  SU RANGO VA DE 1 A 2000 CARACTERES POR QUIE SE EMPLEA 2 BIT POR CADA CARACTER.
+5 Y 6 TIPO DE DATOS ALFANUMERICO QUE SOLO SE USA EN ORACLE 8 VARCHAR(X) Y CHAR2(X)
+7. LONG 
+GUARDA CARACTERES DE LONGITUD VARIABLE, PUEDE CONTENER HASTA 2BILL DE CARACTERES (2 GB) NO ADMITE ARGUMENTO PARA ESPECIFICAR SU LONGITUD. EN ORACLE 8 Y SIGUINTES VERSIONES CONVIENE EMPLEAR LONG 
+Y DESDE NLOG PARA ALMACENAR GRANDE CANTIDADES DE DATOS ALFA NUMERICO.
+
+8. CLOB (CHARACTER LARGE OBJECT )
+ Y NLOB
+PUEDE ALAMCENAR 128 TB DE DATOS DE CARACTERRES EN LA BASE DE DATOS 
+9. BLOB 
+PUEDE ALMACENAR HASTA 128 TB DE DATOS BINARIOS(IMAGENES, VIDEOS).
+SI INTENTAMOA ALMACENAR UN CAMPO ALFANUMERICO UNHA CADENA DE CARCTERES DE MAYOE LONGITUD QUE LA DEFINIDA, APARECE UN MENSAJE INDICANDO QUE EL VALOR ES DEMACIOADO GRANDE
+Y LA SENTENCIA NO SE EJECUTA. NPO EJEMPLO SI DECIDIMOS UM CAMPO DE TIPO VARCHAR2 (10) Y LE ASIGNAMOS LA CADENA A PRENDA PHP '(11 CARCCTERES )' MPARARECE UN MENASJE 
+DE ERROR Y LA SENTENCIA NOSE EJECUTA. SI INGRESAMOS UN VALOR NUMERICO (OMITIENDO LAS COMILLAS LO COMVIERTE A CADENA Y LO INGRESA COMO TAL  SI EN UN CAMPO COMO VARCHAR  (5) INGRESAMO0S EL VALOR 12345 LO TOMA COMO SI LE HUBIERAMOS TIPIADO 12345 ENTRE COMILLAS SIMPLES
+SI INGRESAMOS 23PUNTOS 56 LO CONVIETE A (23.56)ENTRE COMILLAS SI EL VALOR NUMERICO AL SER CONVERTIDO A CADENA  SUPERA LA LONGITUD DEFINIDA, APARECE UN MENSAJE DE ERROR Y LA SENTECNIA NO SE EJECUTA.
+ ES IMPORTANTE EL TIPO DE DATO ADECUADO SEGUN EL CASO. PARA ALMACENAR CADENAS QUE VARIA EN SU LONGITUD TODOS LOS REGISTROS TENDRAN LA MISMA LONGITUD EN UN CAMPO DETERMINADO, SE EMPLEA VARCHA2 ENVEZ  D CHAR5 PÑOR EJEMPLO EN CAMPOS QUE GUARDAMOS NOMBRE Y APELLIDOS NO TODOS LOS NOMBRE Y APELLIDOS TIENE LA MISMA LONGITUD
+PARA ALMACENAR CADENAS QU NO VARIAN EN SU LONGITUD ES DECIR TODOS LOS REGISTROS TENDRAN LA MISMA LONGITUD EN UN CAMPO DETERMINADOI SE EMPLEA CHAR. POR EJMPLO DEFINIMOS UN CAMPO CODIGO QUE OCNTARAN DE 5  CARACTERES T6ENDARAN UN CODIGO DE 5 CARACTERES NI MAS NI MENOS. PARA ALMACENAR VALORES SUPERIORES A 4000 CARACTERES SE DEBE EMPLEAR LONG.
+
+
+CREATE TABLE AUTO(
+PLACA CHAR(6),
+MARCA VARCHAR2(20),
+MODELO VARCHAR (20),
+PRECIO NUMBER(10,2),
+PRIMARY KEY (PLACA)
+
+
+);
+
+//EJERCICIO DE LA TAREA ANTERIOR
+
+--1 ELEIMINAR TABLA
+drop table libros;
+--2 creela con los siguientes campos, establecido como clave  primaria el campo codigo
+create table libros(
+codigo number(4),
+titulo varchar2(40),
+autor varchar2(20),
+editorial varchar2(15),
+PRIMARY KEY(codigo)
+
+);
+
+describe libros
+
+select * from libros;
+-- 3 ingresar los valores 
+insert into libros values( 1,'El aleph' ,'Borges','Emece');
+insert into libros values( 2,'Martin Fierro' ,'Jose Hernandez','Planeta');
+
+insert into libros values( 3,'Aprenda PHP' ,'Mario Molina','Nuevo Siglo');
+
+--ingrese un registro un codigo repetido
+insert into  libros (codigo) values( 3);
+
+--5 intente ingresar un valor ''null en el campo codigo
+
+insert into  libros (codigo) values( null);
+--6 intente actualizar el codigo del libro 'Martin Fierro' a '1'
+update    libros set codigo= 1 where titulo ='Martin Fierro';
+--7actualizar el codigo libro 'Martin fierro' a '10'
+update    libros set codigo=10 where titulo ='Martin Fierro';
+--8 vea que el campo Libros fue establecido comoclave primaria 
+
+select uc.table_name, column_name from
+user_cons_columns ucc
+join user_constraints uc
+on ucc.constraint_name = uc.constraint_name
+where uc.constraint_type = 'P' and
+uc.table_name = 'LIBROS';
+
+truncate table libros
+--VEO EL CAMPO
+--9vea el campo tabla libros en minusculas fue establecida como clave primaria
+-- la tabla esta vacia ya que oracle no encuentra una tabla ¿libros¿
+select uc.table_name, column_name from
+user_cons_columns ucc
+join user_constraints uc
+on ucc.constraint_name = uc.constraint_name
+where uc.constraint_type = 'P' and
+uc.table_name = 'libros';
+
+
+
+
+
