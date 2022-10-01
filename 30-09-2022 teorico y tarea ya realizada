@@ -1,0 +1,68 @@
+Tipos de datos numericos
+ya explicamos que para crear una tabla debemos elegir la estructura adecuada esto es definir los campos y sus tipos mas precisos segun es el caso. los valores numericos
+nose ingresan entre comillas --= "" se utiliza el punto como separador de decimales. Para almacenar valores numericos oracle dispone de dos tipos de datos:
+1) number (t, d) para almacenar valores enteros o decimales, positivos o negativossu rango va de 1.0 x 10-130 hasta 9.999..(38 nueves). Definimos campos de este tipo caundo
+queremos almacenar valores numericos con los cuales luego realizaremos operaciones matematicas por ejemplo cantidades y precios. el parametro t indica el numero total ede 
+digitos( contando los decimales ) que contendra el numero como máximo( es la precicion). su rango va de 1 - 38. El parametro de indica el maximo de digitos deciamles(Escala)
+la escala puede hasta 127 para definir n umeros enteros se puede omitir el parametro 'd' o colocar un cero. un campo definido "number(5,2)" pueden contener cualquier numero 
+entre -999.99 y 999.99. para especificar numeros enteros podemos omitir el parametros de o colocar el valor cero. Si intentamos alamcenar un valor mayor fuera del rango permitido
+al definirlo, tal valor no se carga y aparece un mensaje indicando tal situcion y la sentencia nose ejecuta. por ejemplo. si definimos un campo de tipo number (4, 2)e intenatmos guardar el valor 123.45 aparece un amenasje indicando que el valor es demaciado grande para la columna si ingresamos un valor con mas decimales que los definidos el valor se carga pero con la cantidad de decimales permitidos los digitos sobrantes se omiten.
+2) binary_float y binary_double. almacena numeros fotantes con mayor precision 
+///
+value       										 binary_float     binary_doble 
+maximun positive finite value -- 3.40282E+38F			1.7976931348623E+308
+minimun positive finite value
+
+par ambos tipos numericos:  si ingresamos un valor con mas decimal no permitidos redondea el mas cercano. 
+-si intenamos ingresar un valor fuera de rango no los acepta.
+-si ingresmoa una cadena oracle intenta convertir a valor numerico si dicha cadena consta de digitos la conversion se realiza luego verifica si esta dentro del rango si no muestra un mensaje e error y no ejcuta ola sentencia. si la cadena contiene caracteres que oracle no opuede convertir a valores numericos mnuestra un mensaje de error y la sentencia njose ejecuta por ejemplo definimos un campo tipo number(5,2) 12,22 la convierte al valo0r numerico 12.22 y la ingresa, si intentanmos ingresar lacadena 1234.56 la convierte al valor numerico pero como el maximo valor permitido es 999.99 muestra un mensje indicando que esta fuera de rango si intentamos ingresar 12.25 oracle no puede realizar y muestra un mensaje de error
+
+ejercio
+
+un banco tiene registrado las cuentas corrientes de sus clientes en una tabla llamada cuentas , la tabla contiene estos datos 
+
+
+numero cuentas, dochumentos nombre saldo
+1234, 25666777, Pedro PErez , 500000.6
+2234, 27888999, Juan Lopez, -25000
+3334, 27888999, Juan Lopez,4000.5
+3346, 32111222, Susana Molina, 1000
+
+
+
+
+
+ejercicio Jueves 5 /09/2022
+
+drop table cuentas;
+truncate table cuentas;
+
+create table cuentas(
+numero number(4),
+documento char(8),
+nombre  varchar2(30),
+saldo number(8,2),
+PRIMARY KEY (numero)
+
+);
+describe cuentas;
+
+select uc.table_name, column_name from
+user_cons_columns ucc
+join user_constraints uc
+on ucc.constraint_name = uc.constraint_name
+where uc.constraint_type = 'P' and
+uc.table_name = 'CUENTAS';
+
+select * from cuentas;
+INSERT INTO CUENTAS VALUES(1234, '25666777', 'Pedro Perez' , 500000.6);
+INSERT INTO CUENTAS VALUES(2234, '27888999', 'Juan Lopez', -25000);
+INSERT INTO CUENTAS VALUES(3344, '27888999', 'Juan Lopez' , 4000.50);
+INSERT INTO CUENTAS VALUES(3346, '32111222', 'Susana Molina' , 1000);
+select  * from cuentas where saldo>4000;
+
+select numero, saldo from CUENTAS where nombre= 'Juan Lopez';
+select * from cuentas where saldo< 0;
+select * from cuentas where numero>=3000;
+
+
