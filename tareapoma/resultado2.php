@@ -1,7 +1,7 @@
 <?php
 
 $val = $_GET['tipo'];
-$name=5;
+$name=$_GET['conteo'];
 
 for ($i=1; $i <= $val ; $i++) { 
 	echo '<br>'.$val."vrrrr{$i} <br> ";

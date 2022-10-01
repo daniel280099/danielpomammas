@@ -9,11 +9,11 @@
 	<div>
 		<form method="GET" action="resultado.php">
 				
-				<input type="text" name="number[]">
-				<input type="text" name="number[]">
-				<input type="text" name="number[]">
-				<input type="text" name="number[]">
-				<input type="text" name="number[]">
+				<input type="number" name="number[]">
+				<input type="number" name="number[]">
+				<input type="number" name="number[]">
+				<input type="number" name="number[]">
+				<input type="number" name="number[]">
 				<input type="submit" name="">
 
 
