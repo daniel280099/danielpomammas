@@ -1,0 +1,30 @@
+no existe valor por defecto con la clausula defaul podemos definir valores por defecto para los campos de lqa tabla para ello definimos defaulft eol campo autor de la tabla libros
+
+sea desconocido y el valor del campo cantidad sea cero
+create libros (
+titulo varchar2(40) not null,
+autor varchar2(30) default'desconocido' not null,
+editorial varchar(20),
+precio number(5,2),
+cantidad number(3) default 0
+
+)
+si al intgresar un nuevo registro omitimos los valores para el campo autor y cantidad oracle ingresara los valores por defecto entonces al definir explicammos un valor mediante la clausa default 
+es sera el valor por defecto
+ la clausala defaul debe ir antes de not null si existiece si no aparece un mensaje de error. para ver los campos de la tabla libros tiene definido valores por defecto y cuales son podemos realizar la siguiente consulta
+
+
+selcet column_name, nullable, data_default from use_tab_columns where table name = 'LIBROS'; 
+ENENTOCES LA CLAUSA DEFAULT en ola columna data default aparece el valor por defecto si lol tiene en la columna nullabel aparece N si el campo no esta definido y Y si permoite vaores nulos
+
+Tambien se puede utiliza default para dar un valor por defecto a los campos en sentencias insert por ejemplo:
+
+insert into libros (titulo, autor , editorial, precio, cantidad) values ('el gato con botas', default, default default, 100);
+entonce la clausala default permite especificar el valor por defecto  si no se especifica el vaklor por defecto es null siempre que el campo no aya sido declarado not null los campos para los cuales mose ingresa valores en un insert tomara los valores por defecto 
+si permite valores nulos y no tiene clausla default almacenara  null
+si tiene clausula defaul (admita o no valores nulos) el valor definido como determinado si esta declarado especificamento por ot null y no tiene valor default no hay valor por defecto asi que causara un error  y el insert nose ejecutara
+
+un campo solo puede tener un valor por defecto una tabla puede tener todos los campo con valores por defecto que un campo tenga por valor por defecto nose significa queno admita valores nulos, puede o no admitirlos, un campo definido por clave primaria
+
+ acepat un valor default pero no tiene sentido ya que valor por defecto solo se podra insertar una vez  si intentan ingresarce cuando otro registro loo tiene alamcenado aparecera un mensaje de error indicando que se quiere dupplicar la clave 
+  
