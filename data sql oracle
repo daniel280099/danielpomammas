@@ -1,0 +1,67 @@
+drop table libros;
+create table libros(
+titulo varchar2(30),
+autor varchar(30),
+precio number(5,2)
+);
+
+insert into libros values ('aprendiendo PHP','Robert', 50.50);
+insert into libros values ('programacion Java','Lopez', 100);
+select * from libros;
+select titulo,precio - (precio*0.1) from libros;
+select titulo, precio, precio * 0.1 as descuento, precio - (precio * 0.1 ) as "precio final" from libros;
+
+Select titulo || ' - '|| autor from libros;
+Select titulo || ' S/'|| precio from libros;
+
+
+
+
+-----------------------------------------------------------------------------------------------
+
+-- eliminar tabla 
+drop table articulos;
+--creacion de la tabla
+create table articulos(
+codigo char(4),
+nombre varchar2(20),
+descripcion varchar2(30),
+precio number (8,2),
+cantidad number(3) default 0,
+primary key (codigo)
+
+);
+insert into articulos values(101,'impresora','epson stylus C45',400.60,20);
+insert into articulos values(203,'impresora','Epson Stylus C85',500,30);
+insert into articulos values(205,'monitor','Samsung 14', 800,10);
+insert into articulos values (300, 'teclado','ingles Biswal', 100, 50);
+
+select * from articulos;
+
+select nombre,  precio *0.15 as descuento from articulos;
+--4result
+
+update articulos set precio = precio +(precio*0.15);
+--5
+select * from articulos;
+--6
+select nombre ||' - '||descripcion from articulos;
+
+---7
+
+update articulos set cantidad = (cantidad - 5) where nombre='impresora';
+
+--8
+select * from articulos where codigo=101;
+--9
+select 'Cod.'|| codigo ||': '|| nombre ||descripcion ||'$'||precio||'('||cantidad||')' from articulos where codigo=101;
+
+
+
+
+
+
+
+
+
+
