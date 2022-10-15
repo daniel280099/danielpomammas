@@ -1,0 +1,61 @@
+<?php
+
+interface ingredientes{
+
+	public function establecer_ingredientes($lista);
+	public function obtener_ingresdientes();
+}
+interface receta{
+
+	public function establecer_($pasos);
+	public function obtener_receta();
+}
+/**
+ * 
+ */
+class Postre implements ingredientes, receta
+{	
+	private $ingredientes;
+	private $receta;
+
+	public function establecer_ingredientes($lista){
+		$this->ingredientes = explode(',', $lista);
+
+		/*foreach ($lista as $key => $value) {
+			// code...
+			echo "<li/>{$value}";
+		}*/
+	}
+	public function obtener_ingresdientes(){
+		#$num_ingredientes = count($this->ingredientes);
+		$html = '<ul>';
+		/*for ($i=0; $i < $num_ingredientes ; $i++) { 
+			// code...
+			$html.='<li>'.$this->ingredientes[$i]. '</li>';
+		}*/
+		foreach ($this->ingredientes as $key => $value) {
+			// code...
+			$html.='<li>'.$value. '</li>';
+		}
+		$html .= '</ul>';
+		return print($html);
+
+	}
+	public function establecer_($pasos){}
+	public function obtener_receta(){}
+}
+
+
+echo '<h1/>Postre';
+$hot_cakes = new Postre();
+echo '<h3/>ingredientes:';
+$hot_cakes->establecer_ingredientes('
+		1 taza de harina par hot cakes,
+		1 huevo,
+		1/3 taza de leche,
+		10 gotas de vainilla,
+		3 cucharadas de mantequilla
+
+	');
+echo '<h3/>Receta:';
+$hot_cakes->obtener_ingresdientes();
