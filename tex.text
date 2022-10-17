@@ -1,0 +1,61 @@
+select chr(65) from dual; -- reorna 'A';
+
+ACOTACIONES
+DE UNA SOLA COLUMNA PRESNTE de manera predeterminada en todasa las instalaciones de base de datos de oracle se utiliza cuando queremos hacer un select que no necesita consultar tabla
+la tabla tiene una sola columna varchar2(1) llamada DUMMY que tiene un valor de x - concat 
+concat(cadena1, cadena2):
+concatena dos cadenas de caracteres es equivalente a operador || (doble barra vertical)
+ejemplo:
+select concat('buenas', 'tardes') from dual;--
+retorna 'buenas tardes'
+-initcap(cadena);
+retorna la cadena -- con la primera letra letra capital de cada palabra en mayuscula. ejemplo:
+select initcap('bhuenas tardes alumnos') from dual; -- retorna 'Buenas Tardes Alumnos'
+lower(cadena)
+retorna la cadena enviada como argumento. lower significa reducir en ingles:
+select lower(Buenas tardes ALUMNOS') FROM dual;--retorna 'bhuenas tardes alumnos
+upper(cadena).
+retorna la cadena con todos los caraxcteres en mayuscula. ejemplo:
+lpad(cadena , longitud , cadenarelleno)
+espcificados
+comenazado desde el pirmer caracter si longitud es mayor de la cadena enviada rellena los espacios restantes con la enviada como tercer argumento
+en caso de omitir el del tercer argumento rellena con espcios ejemplo
+select lpad('alumno',10, 'xyz') from dual;
+select lpad('alumno',4,'xyz') from dual;
+ por el argumento longitud de la cadena enviado como argumento
+ en caso de omitir el terncer argumento rellena con espacio (ultimo caracter)
+ 
+ 
+ ltrim(cadena1, cadena2)
+ borra todas las ocurrencias de cadena 2 en cadena1
+ si se encuentra al comieno si se omite el segundo artgumento ejemplos:
+ select ltrim('la casa de la cuadra', 'la') from dual; -- retorna 'casa de la cuadra';
+ 
+ borra todas las ocurrencias si encunetra por la derecha 
+ trim cadena retorna la cadena con otros espacios eliminados 
+ 
+ replace (cadena , subcadena , subcadena2)
+ retorna la cadena con todas las ocurrencias
+  de la sub caena de remplzo
+  
+  substr(cadena, inicio ,. longitud)
+  devuelve la cadena especificada
+  como primer argumento 
+  empezando de la posicion especificada
+  po el segundo argumento y de tanto d carcateres delongitud como indica el argumento
+  
+  select substr(0
+  
+  
+  length (cadena)
+  la longitud de la cadena 
+  leng significa longitud en ingles
+  select length('ww.oracle.com')from dual; --retorna la  longitud
+  instr(cadena, subcadena);
+  devuelve la posicion de comienzo(de la primera ocurrencia) de la subcadena especificada como primer argumento si no la encuentra retorna cero..
+  
+  translate
+  se especifica que se reemplace todos los caracteres
+  
+  select translate ('JORGE LUIS BORGES','OSG', '056') from dual; - retorna '0R6E LUI5 B0R6E5'.
+  SE PUED EMPLEAR ESTAS FUNCIONES ENVIANDO COMO ARGUMENTO EL NOMBRE DE UN CAMPO DE TIPO CAACTER
