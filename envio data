@@ -1,0 +1,61 @@
+Fechas y Horas(Date)
+ estas son:
+add_moths(f,n)
+agrega a una fecha, un numero de meses. Si el segundo argumento es positivo, se le suma a la fecha enviada tal cantidad de meses, si es negativo se le resta a la fehca asignada 
+tal cantidad de meses. ejemplo:
+select add_months('10/06/2022', 5)from dual;
+retorna '10/11/20'
+si es positivo se suma si es negativo se resta;
+
+last_day(f);
+retorna el ultimo dia del mes
+select last_day('10/02/2022') from dual;
+
+months_betweeen(f1,f2)
+select months_between('19/05/2022','21/06/2022') from dual retorna -1.06451613
+retorna el numero de meses entre las fechas enviadas como argumento
+
+next_day(fecha, dia)
+retorna con una fecha correspondiente al primer dia especificado el dia luego de la fecha especificado. En  el siguiente ejemplo se busca
+select next_day('10/08/2022','LUNES') from dual;
+retorna '17/08/2022';
+el lues siguintes de la fecha especificada
+
+curret_date
+retorna la fehca actual
+select current_date from dual;
+retorna '20/10/2022'
+
+current _timestamp
+retorna la fecha actual
+select current_timestamp from dual;
+retorna '20/10/2022 21:18:20'
+
+sysdate:
+retorna la fehca y hora actual del servidor de oracle;
+systimestamp 
+retorna fecha y hora actuales
+select systimestamp from dual;
+retorna '20/10/2022 21:18:20'
+
+to_date
+convierte una cadena a tipo de data date
+select to_date('05-SEP-2019 10:00 AM','DD-MON-YYYY HH:MM AM' ) FROM DUAL;
+
+to_char
+CONVIERTE de cadena a caracteres 
+select to_char('10/10/2022') from dual;
+
+extract(parte, fecha)
+retorna la parte expecificada por el primer argumento de una fechaa puede extraer el año (year), mes(month), dia(day),hora(hour),minutos(minutes), segundos(seconds), entr otros: ejemplo:
+select extract(month from sysdate) from dual;
+retorna el numero de mes de la fehca actual
+
+en oracle: los operadores matematicos mas y menos pueden emplearce con fechas. por ejemplo:
+
+select sysdate -3 from daul;
+retorna 3 dias antes de la fecha actula
+select to_date('') -5 from daul;
+
+se pude emplear estas funciones enviando como argumento un campo de de tipo date
+retorna 10/12/2022
