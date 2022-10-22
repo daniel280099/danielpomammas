@@ -1,0 +1,29 @@
+drop table medicamentos
+
+create table medicamentos(
+codigo number(5),
+nombre varchar2(20),
+laboratorio varchar2(20),
+precio number(5,2),
+cantidad number(3),
+primary key(codigo)
+
+);
+
+select * from medicamentos;
+--3
+insert into medicamentos values(100,'Sertal','Roche', 5.1,100);
+insert into medicamentos values(102,'Buscapina','Roche', 4.10,200);
+
+insert into medicamentos values(2052,'Amoxidal 500','Bayer',16.60,100);
+insert into medicamentos values(230,'Paracetamol 500','Bago', 1.90,200);
+insert into medicamentos values(345,'Bayasprirna','Bayer', 2.10,150);
+insert into medicamentos values(347,'Amoxidal Jarabe','Bayer', 5.10,250);
+--4
+select * from medicamentos where laboratorio ='Roche' and precio < 5;
+
+--5
+select * from medicamentos where laboratorio='Roche' or precio < 5;
+--6
+select * from medicamentos where not laboratorio='Bayer' and cantidad=100;
+select * from medicamentos where  laboratorio='Bayer'  and not cantidad=100;
