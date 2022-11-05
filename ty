@@ -1,0 +1,81 @@
+
+--elimina la tabla 
+drop table empleado;
+--creacion de la tabla empleado
+create table empleado(
+    nombre varchar2(30),
+   documento char(8) not null,
+   domicilio varchar2(30),
+   fechaingreso date,
+   seccion varchar2(20),
+   sueldo number(6,2),
+   primary key(documento)
+)
+--ingreso de registros  a la tabla
+insert into empleado values ('Juan Perez','22333444','Colon 123','08/10/1990','Gerencia',900.50);
+insert into empleado values ('Ana Acosta','23444555','Caseros 987','18/12/1995','Secretaria',590.30);
+insert into empleado values ('Lucas Duarte','25666777','Sucre 235','15/05/2005','Sistemas', 790);
+insert into empleado values ('Pamela Gonzalez','26777888','Sarmiento 873','12/02/1999','Secretaria',550);
+insert into empleado values ('Marcos Juarez','30000111','Rivadavia 801','22/09/2002','Contaduria', 630.70);
+insert into empleado values ('Yolanda perez','35111222','Colon 180','08/10/1990','Administracion', 400);
+insert into empleado values ('Rodolfo perez','35555888','Coronel Olmedo 588','28/05/1990','Sistemas', 800);
+
+
+select * from empleado;
+
+--4Muestre todos los empleados con apellido "Perez" empleando el operador "like" (1 registro)
+select nombre as "nombre empleados" from empleado where nombre like '%Perez%';
+--5 muestra todos os empleados cuyos docmicil
+select * from empleado where domicilio like 'Co%8%';
+-- 6) Seleccione todos los empleados cuyo documento finalice en 0 ó 4 (2 registros)
+select * from empleado where domicilio like 'Co%'; 
+
+-- 7) Seleccione todos los empleados cuyo documento NO comience con 2 y cuyo nombre finalice en "ez" (1 registro)
+select * from empleados where documento not like '2%ez';
+
+-- 8) Recupere todos los nombres que tengan una "G" o una "J" en su nombre o apellido (3 registros)
+
+
+-- 9) Muestre los nombres y sección de los empleados que pertenecen a secciones que comiencen con "S" o "G" y tengan 8 caracteres (3 registros)
+
+
+
+--1
+drop table  medicamentos;
+
+create table medicamentos(
+
+    codigo number(5),
+    nombre varchar2(20),
+    laboratorio varchar2(20),
+    precio number(6,2),
+    cantidad number(3),
+    fechavencimiento date not null,
+    numerolote number(6) DEFAULT null,
+    primary key(codigo)
+);
+
+describe medicamentos;
+
+insert into medicamentos values(120,'Sertal','Roche',5.2,1,'01/02/2015',123456);
+insert into medicamentos values(220,'Buscapina','Roche',4.10,3,'01/02/2016',null);
+insert into medicamentos values(228,'Amoxidal 500','Bayer',15.60,100,'01/05/2017',null);
+insert into medicamentos values(324,'Paracetamol 500','Bago',1.90,20,'01/02/2018',null);
+insert into medicamentos values(587,'Bayaspririna',null,2.10,null,'01/12/2019',null);
+insert into medicamentos values(789,'Amoxidal Jarabe','bayer',null,null,'15/12/2019',null);
+select * from medicamentos;
+
+
+---4
+select count(*) from medicamentos; 
+--5
+select count(laboratorio) from medicamentos;
+--6
+select count(precio) as precio, count(cantidad)as cantidad from medicamentos;
+--7cuenta la cantidad 
+select count(precio) as percios  from medicamentos where laboratorio like 'B%';
+--8
+select count(numerolote) from medicamentos where numerolote is not null;
+--9
+select count(fechavencimiento) as fecha from medicamentos;
+
